@@ -1,0 +1,37 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.listado-ponentes{
+    @include m.reset-lista;
+    display: grid;
+    gap:1rem ;
+    grid-template-columns: repeat(1, 1fr);
+
+    &__ponente{
+        color: v.$azul;
+        border:  1px solid v.$azul;
+        padding: 1rem;
+        border-radius: 1rem;
+        text-align: center;
+        font-size: 1.8rem;
+        font-family: v.$fuente_principal;
+        &:hover{
+            cursor: pointer;
+        }
+
+        &--seleccionado{
+            @extend .listado-ponentes__ponente;
+            background-color: v.$azul;
+            color: v.$blanco;
+        }
+    }
+    &__no-resultado{
+        text-align: center;
+        font-size: 1.8rem;
+        font-family: v.$fuente_principal;
+        font-weight: normal;
+        display: block;
+    }
+
+}
